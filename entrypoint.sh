@@ -64,6 +64,9 @@ function main {
     chefspec)
       chef_exec_rspec ${*}
       ;;
+    kitchen)
+      kitchen_test
+      ;;
     *)
       echo "ERROR: You must provide a valid value for 'chef_subcommand'"
       exit 1
