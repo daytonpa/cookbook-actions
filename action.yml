@@ -1,0 +1,10 @@
+name: 'GitHub Actions: Chef Cookbooks'
+author: 'Patrick Dayton'
+description: 'A series of automated tasks for Chef Cookbooks'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  color: 'gray-dark'
+  icon: 'aperture'
+  
