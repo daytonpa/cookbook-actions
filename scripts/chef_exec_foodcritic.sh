@@ -5,7 +5,7 @@ set -oe
 function chef_exec_foodcritic {
   echo "Performing Chef Foodritic linting checks"
 
-  chef exec foodcritic ${*}
+  chef exec foodcritic .
   if [[ ${?} -eq 0 ]]; then
     echo
     echo "Chef Foodcritic checks passed ✔"

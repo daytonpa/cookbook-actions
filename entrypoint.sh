@@ -36,7 +36,6 @@ function parse_inputs {
   else
     echo "INFO: Workspace has not been set.  Using default setting"
   fi
-
 }
 
 function pre_run {
@@ -74,4 +73,4 @@ function main {
   esac
 }
 
-pre_run && main "${*}"
+main "${*}"
