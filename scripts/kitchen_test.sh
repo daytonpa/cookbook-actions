@@ -9,7 +9,7 @@ function kitchen_test {
   echo "Starting Test Kitchen"
 
   apt-get update -y && \
-    apt-get install build-essential
+    apt-get install -y build-essential
 
   chef exec gem install vagrant
   chef exec gem install virtualbox
