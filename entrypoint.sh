@@ -55,13 +55,11 @@ function main {
 
   cd ${GITHUB_WORKSPACE}/${workspace}
   case "${chef_subcommand}" in
-    cookstyle)
+    lint)
       chef_exec_cookstyle ${*}
-      ;;
-    foodcritic)
       chef_exec_foodcritic ${*}
       ;;
-    chefspec)
+    unit)
       chef_exec_rspec ${*}
       ;;
     kitchen)
