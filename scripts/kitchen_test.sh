@@ -8,7 +8,7 @@ VBOX_VERSION='6.1'
 function kitchen_test {
   echo "Starting Test Kitchen"
 
-  apt-get update -y && apt-get install -y lsb-core unzip wget
+  apt-get update -y && apt-get install -y libfuse2 lsb-core unzip wget
 
   # Install Vagrant
   wget -O /tmp/vagrant_${VAGRANT_VERSION}_linux_amd64.zip \
