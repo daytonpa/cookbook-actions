@@ -5,7 +5,7 @@ set -ou
 ### VARIABLES ###
 #
 # EXTRA PACKAGES
-EXTRA_PACKAGES=( ca-certificates jq vim wget )
+EXTRA_PACKAGES=( ca-certificates jq wget )
 
 function has_prefix {
   case ${2} in
@@ -45,12 +45,12 @@ function pre_run {
 }
 
 function main {
-  local scripts_directory="$(dirname ${0})/scripts"
-  local scripts_arr=($(ls -d ${scripts_directory}/*))
+  local scripts_directory='/scripts'
+  local scripts_arr=($(ls ${scripts_directory}))
 
   # Load our scripts
   for script in scripts_arr; do
-    source ${scripts_directory}/${script}.sh
+    source ${scripts_directory}/${script}
   done
 
   cd ${GITHUB_WORKSPACE}/${workspace}
