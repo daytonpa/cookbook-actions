@@ -8,7 +8,7 @@ VBOX_VERSION='6.1'
 function kitchen_test {
   echo "Starting Test Kitchen"
 
-  sudo apt-get update -y && sudo apt-get install -y lsb-core unzip wget
+  apt-get update -y && apt-get install -y lsb-core unzip wget
 
   # Install Vagrant
   wget -O /tmp/vagrant_${VAGRANT_VERSION}_linux_amd64.zip \
@@ -19,14 +19,14 @@ function kitchen_test {
   /usr/bin/vagrant --version
 
   # Install VirtualBox
-  echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | sudo tee -a /etc/apt/sources.list
+  echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | tee -a /etc/apt/sources.list
 
-  wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - & \
-    wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add - & \
+  wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add - & \
+    wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | apt-key add - & \
     wait
 
-  sudo apt-get update -y && \
-    sudo apt-get install virtualbox-${VBOX_VERSION}
+  apt-get update -y && \
+    apt-get install virtualbox-${VBOX_VERSION}
 
   kitchen test
   if [[ ${?} -eq 0 ]]; then
