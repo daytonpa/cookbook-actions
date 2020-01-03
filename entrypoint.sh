@@ -6,6 +6,7 @@ set -ou
 #
 # EXTRA PACKAGES
 EXTRA_PACKAGES=( ca-certificates jq wget )
+SCRIPTS_DIRECTORY='/scripts'
 
 function has_prefix {
   case ${2} in
@@ -45,13 +46,14 @@ function pre_run {
 }
 
 function main {
-  local scripts_directory='/scripts'
-  local scripts_arr=($(ls ${scripts_directory}))
+  local scripts_arr=($(ls -d ${SCRIPTS_DIRECTORY}/*))
 
   # Load our scripts
-  for script in scripts_arr; do
-    source ${scripts_directory}/${script}
+  for script_path in "${scripts_arr[@]}"; do
+    source ${script_path}
   done
+
+  parse_inputs
 
   cd ${GITHUB_WORKSPACE}/${workspace}
   case "${chef_subcommand}" in
