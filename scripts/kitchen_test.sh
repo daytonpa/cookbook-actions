@@ -8,6 +8,9 @@ VBOX_VERSION='6.1'
 function kitchen_test {
   echo "Starting Test Kitchen"
 
+  apt-get update -y && \
+    apt-get install build-essential
+
   chef exec gem install vagrant
   chef exec gem install virtualbox
 
