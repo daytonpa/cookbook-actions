@@ -5,7 +5,7 @@ set -oe
 function chef_exec_cookstyle {
   echo "Performing Chef Cookstyle linting checks"
 
-  chef exec cookstyle -D ${*}
+  CHEF_LICENSE=accept chef exec cookstyle -D ${*}
   if [[ ${?} -eq 0 ]]; then
     echo
     echo "Chef Cookstyle checks passed ✔"

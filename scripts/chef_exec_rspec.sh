@@ -5,7 +5,7 @@ set -oe
 function chef_exec_rspec {
   echo "Performing unit tests with ChefSpec"
 
-  chef exec rspec -fd ${*}
+  CHEF_LICENSE=accept chef exec rspec -fd ${*}
   if [[ ${?} -eq 0 ]]; then
     echo
     echo "ChefSpec unit tests passed ✔"

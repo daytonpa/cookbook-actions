@@ -8,7 +8,7 @@ VBOX_VERSION='6.1'
 function kitchen_test {
   echo "Starting Test Kitchen"
 
-  kitchen test
+  CHEF_LICENSE=accept kitchen test
   if [[ ${?} -eq 0 ]]; then
     echo
     echo "Test Kitchen successfully completed ✔"
