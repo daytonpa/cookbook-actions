@@ -1,4 +1,4 @@
-FROM daytonpa/chefdk:1
+FROM daytonpa/chefdk:2
 
 RUN mkdir -p /scripts
 
